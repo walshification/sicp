@@ -10,4 +10,6 @@ Kenneth Friedman wrote a simple [step-by-step guide](https://www.kennethfriedman
 
 ### Non-M1 Macs
 
-`brew install mit-scheme`
+```sh
+brew install mit-scheme
+```
