@@ -14,8 +14,18 @@
 (define (average x y)
   (/ (+ x y) 2))
 
+; old implementation
+; (define (good-enough? guess x)
+;   (< (abs (- (square guess) x)) 0.001))
+
+; This version of good-enough? checks if we were to improve the guess, would
+; the difference between the old guess and the new one be is less than 0.1% of
+; the old guess, and if it is, we call the current guess good enough. This
+; relies on the precision of the system that runs it and should be the best
+; we can do at any given time in any given system.
 (define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+  (< (abs (- (improve guess x) guess))
+     (* guess 0.001)))
 
 (define (sqrt x)
   (sqrt-iter 1.0 x))
